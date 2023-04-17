@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js - stereoscopic view</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				margin: 0;
+				font-family:'Courier New', Courier, monospace;
+			}
+			.left {
+				float: left;
+			}
+			.right {
+				float: right;
+				overflow:unset;
+				border-left: 1px solid white;
+				margin-left: -1px;
+			}
+			.info-banner {
+				position: absolute;
+				width: auto;
+				color: white;
+				background-color: rgb(97, 97, 97);
+				font-size: 1.5vw;
+				padding: 10px;
+			}
+			.info {
+				overflow: hidden;
+				display: none;
+			}
+			.info-container:hover .info {
+				display: block;
+			}
+			.l {
+				left: 0px;
+			}
+			.r {
+				left: 50%;
+			}
+			.parameters {
+				position: absolute;
+				bottom: 0px;
+				padding-left: 10px;
+				font-size: 2vw;
+				color: white;
+			}
+			.canv {
+				width: 20%;
+				aspect-ratio: 1 / 1;
+				position: absolute;
+				bottom: 0px;
+				z-index: 99;
+				border: 1px solid white;
+			}
+			.lr {
+				right: 50%;
+			}
+			.rr {
+				right: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div class="info-container">
+				<div class="info-banner l">
+					<b>Info</b>
+					<div class="info">
+						<p>For best results, resize the window to a square</p>
+						<p>Left Arrow: Decrease space between eyes (-)</p>
+						<p>Right Arrow: Increase space between eyes (+)</p>
+						<p>Up Arrow: Decrease distance from object (-)</p>
+						<p>Down Arrow: Increase distance from object (+)</p>
+						<p>Click: Change object</p>
+					</div>
+				</div>
+				<div class="info-banner r">
+					<b>Info</b>
+					<div class="info">
+						<p>For best results, resize the window to a square</p>
+						<p>Left Arrow: Decrease space between eyes (-)</p>
+						<p>Right Arrow: Increase space between eyes (+)</p>
+						<p>Up Arrow: Decrease distance from object (-)</p>
+						<p>Down Arrow: Increase distance from object (+)</p>
+						<p>Click: Change object</p>
+					</div>
+				</div>
+			</div>
+			<div class="parameters l">
+				<p class="angle">Eye angle: 3.43</p>
+				<p class="eye">Eye space: 0.30</p>
+				<p class="dist">Distance: 5.00</p>
+			</div>
+			<div class="parameters r">
+				<p class="angle">Eye angle: 3.43</p>
+				<p class="eye">Eye space: 0.30</p>
+				<p class="dist">Distance: 5.00</p>
+			</div>
+			<canvas id="leftCanvas" class="canv lr" width="1000" height="1000"></canvas>
+			<canvas id="rightCanvas" class="canv rr" width="1000" height="1000"></canvas>
+		</div>
+		<script type="module" src="./main.js"></script>
+	</body>
+</html>
